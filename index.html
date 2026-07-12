@@ -4,20 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dava Takip</title>
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap&subset=latin-ext" rel="stylesheet">
 <style>
 :root{
-  --murekkep:#1B211E;      /* mürekkep siyahı */
+  --murekkep:#1B211E;
   --murekkep-2:#2A322E;
-  --kagit:#F3F3EE;          /* dosya kağıdı */
+  --kagit:#F3F3EE;
   --kart:#FFFFFF;
   --cizgi:#DCDDD3;
-  --yesil:#1E5B43;          /* cübbe yeşili */
+  --yesil:#1E5B43;
   --yesil-koyu:#154334;
   --yesil-acik:#E4EDE7;
-  --kirmizi:#B23A2E;        /* süre sonu */
+  --kirmizi:#B23A2E;
   --kirmizi-acik:#F7E7E4;
   --amber:#96690F;
   --amber-acik:#F6EDD8;
@@ -42,29 +43,28 @@ label{display:block;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:
 .gizli{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
-/* ---------- Üst şerit / kimlik ---------- */
+/* ---------- Üst şerit ---------- */
 header.ust{background:var(--murekkep);color:#EDEEE8;border-bottom:3px solid var(--yesil);position:sticky;top:0;z-index:40}
-.ust-ic{max-width:1060px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:12px 20px}
+.ust-ic{max-width:1060px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 20px}
 .marka{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:.04em;display:flex;align-items:center;gap:10px;white-space:nowrap}
-.marka svg{flex:none}
-nav.sekmeler{display:flex;gap:4px;margin-left:8px}
-nav.sekmeler button{padding:7px 14px;border-radius:7px;color:#B9BFB8;font-weight:500}
+nav.sekmeler{display:flex;gap:4px;margin-left:6px}
+nav.sekmeler button{padding:7px 13px;border-radius:7px;color:#B9BFB8;font-weight:500}
 nav.sekmeler button:hover{color:#fff}
 nav.sekmeler button.aktif{background:var(--murekkep-2);color:#fff}
 .ust-sag{margin-left:auto;display:flex;align-items:center;gap:12px}
-.kullanici{font-size:12.5px;color:#9AA39C;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kullanici{font-size:12.5px;color:#9AA39C;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cikis{color:#B9BFB8;font-size:13px;padding:6px 10px;border-radius:7px;border:1px solid #3A423D}
 .cikis:hover{color:#fff;border-color:#5A625C}
 
 /* ---------- Alt gezinme (mobil) ---------- */
 nav.alt{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--murekkep);border-top:3px solid var(--yesil);z-index:40;padding-bottom:env(safe-area-inset-bottom)}
 nav.alt .ic{display:flex}
-nav.alt button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 8px;color:#8F988F;font-size:11px;font-weight:500}
+nav.alt button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 8px;color:#8F988F;font-size:10.5px;font-weight:500}
 nav.alt button.aktif{color:#fff}
 nav.alt button.aktif svg{stroke:#6FBF97}
 
 /* ---------- Ana yerleşim ---------- */
-main{max-width:1060px;margin:0 auto;padding:22px 20px 110px}
+main{max-width:1060px;margin:0 auto;padding:22px 20px 120px}
 .gorunum-baslik{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
 h1{font-family:var(--serif);font-weight:600;font-size:26px;letter-spacing:.01em}
 h2.bolum{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--gri);display:flex;align-items:center;gap:10px;margin:26px 0 10px}
@@ -79,7 +79,7 @@ h2.bolum.tehlike::after{background:#E5C6C1}
 .buton.tehlike{background:transparent;color:var(--kirmizi);border:1px solid #E0BCB6}
 .buton.tehlike:hover{background:var(--kirmizi-acik)}
 
-/* ---------- Panel: istatistik kartları ---------- */
+/* ---------- İstatistikler ---------- */
 .istatistikler{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .ist{background:var(--kart);border:1px solid var(--cizgi);border-radius:10px;padding:14px 16px;box-shadow:var(--golge)}
 .ist .etiket{font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gri)}
@@ -105,7 +105,7 @@ h2.bolum.tehlike::after{background:#E5C6C1}
 .etk-aciklama{font-size:13.5px;color:var(--gri);margin-top:1px;overflow-wrap:anywhere}
 .kalem{flex:none;color:#A8AFA6;padding:4px;border-radius:6px;margin-top:1px}
 .kalem:hover{color:var(--murekkep);background:var(--gri-acik)}
-.rozet{display:inline-flex;align-items:center;font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:2px 8px;border-radius:5px;white-space:nowrap}
+.rozet{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:2px 8px;border-radius:5px;white-space:nowrap}
 .rozet.yesil{background:var(--yesil-acik);color:var(--yesil)}
 .rozet.kirmizi{background:var(--kirmizi-acik);color:var(--kirmizi)}
 .rozet.amber{background:var(--amber-acik);color:var(--amber)}
@@ -114,56 +114,69 @@ h2.bolum.tehlike::after{background:#E5C6C1}
 .gun-etiketi{font-size:12px;font-weight:600;color:var(--kirmizi)}
 .gun-etiketi.normal{color:var(--gri);font-weight:500}
 
-/* ---------- Dosya sırtları ---------- */
+/* ---------- Dosya listeleri ---------- */
 .arac-cubugu{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
 .arac-cubugu input[type=search]{max-width:320px;flex:1;min-width:180px}
 .filtreler{display:flex;gap:6px;flex-wrap:wrap}
 .filtre{font-size:13px;font-weight:500;padding:6px 12px;border-radius:99px;border:1px solid var(--cizgi);background:var(--kart);color:var(--gri)}
 .filtre.aktif{background:var(--murekkep);border-color:var(--murekkep);color:#fff}
 .dosya-liste{display:flex;flex-direction:column;gap:9px}
-.dosya{position:relative;background:var(--kart);border:1px solid var(--cizgi);border-left:5px solid var(--gri);border-radius:10px;padding:13px 15px 12px 15px;box-shadow:var(--golge);cursor:pointer;transition:transform .12s,box-shadow .12s;text-align:left;width:100%}
+.dosya{position:relative;background:var(--kart);border:1px solid var(--cizgi);border-left:5px solid var(--gri);border-radius:10px;padding:13px 15px 12px;box-shadow:var(--golge);cursor:pointer;transition:transform .12s,box-shadow .12s;text-align:left;width:100%}
 .dosya:hover{transform:translateY(-1px);box-shadow:0 3px 6px rgba(27,33,30,.08),0 8px 22px rgba(27,33,30,.09)}
 .dosya.aktif-d{border-left-color:var(--yesil)}
 .dosya.beklemede-d{border-left-color:var(--amber)}
-.dosya.kapali-d{border-left-color:#AEB4AC}
+.dosya.kazanildi-d{border-left-color:var(--yesil)}
+.dosya.kaybedildi-d{border-left-color:var(--kirmizi)}
+.dosya.istifa-d{border-left-color:var(--amber)}
 .dosya-ust{display:flex;align-items:baseline;gap:10px}
 .dosya-ad{font-family:var(--serif);font-weight:600;font-size:17px;flex:1;min-width:0;overflow-wrap:anywhere}
 .esas{font-family:var(--mono);font-size:12.5px;color:var(--gri);border:1px solid var(--cizgi);border-radius:5px;padding:1px 7px;white-space:nowrap;background:var(--kagit)}
-.dosya-alt{display:flex;gap:14px;flex-wrap:wrap;margin-top:5px;font-size:13px;color:var(--gri)}
+.dosya-alt{display:flex;gap:14px;flex-wrap:wrap;margin-top:5px;font-size:13px;color:var(--gri);align-items:center}
 .dosya-alt .sonraki{color:var(--yesil);font-weight:600}
 .dosya-alt .sonraki.gecikti{color:var(--kirmizi)}
 
-/* ---------- Takvim ---------- */
-.takvim-ust{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.ay-ad{font-family:var(--serif);font-weight:600;font-size:21px;min-width:190px}
-.gez{width:34px;height:34px;border-radius:8px;border:1px solid var(--cizgi);background:var(--kart);display:flex;align-items:center;justify-content:center;font-size:16px}
+/* ---------- Takvim (v2 — nokta ızgarası) ---------- */
+.takvim-ust{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.ay-ad{font-family:var(--serif);font-weight:600;font-size:21px;flex:1;min-width:150px}
+.gez{width:36px;height:36px;border-radius:9px;border:1px solid var(--cizgi);background:var(--kart);display:flex;align-items:center;justify-content:center;font-size:17px}
 .gez:hover{background:var(--gri-acik)}
-.bugun-btn{font-size:13px;font-weight:600;padding:7px 12px;border-radius:8px;border:1px solid var(--cizgi);background:var(--kart)}
-.takvim{background:var(--kart);border:1px solid var(--cizgi);border-radius:12px;overflow:hidden;box-shadow:var(--golge)}
-.hafta-basliklar,.hafta{display:grid;grid-template-columns:repeat(7,1fr)}
-.hafta-basliklar div{padding:8px 6px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gri);text-align:center;border-bottom:1px solid var(--cizgi);background:var(--kagit)}
-.gun{min-height:86px;border-right:1px solid #ECEDE5;border-bottom:1px solid #ECEDE5;padding:5px 5px 6px;text-align:left;vertical-align:top;position:relative;display:flex;flex-direction:column;gap:3px;background:var(--kart)}
-.gun:nth-child(7n){border-right:none}
-.gun.dis{background:#FAFAF6;color:#B4BAB2}
-.gun:hover{background:#F4F7F3}
-.gun.secili{outline:2px solid var(--yesil);outline-offset:-2px;z-index:1}
-.gun-no{font-size:12.5px;font-weight:600;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%}
-.gun.bugun .gun-no{background:var(--murekkep);color:#fff}
-.cip{font-size:10.5px;font-weight:600;padding:1px 5px;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
-.cip.yesil{background:var(--yesil-acik);color:var(--yesil)}
-.cip.kirmizi{background:var(--kirmizi-acik);color:var(--kirmizi)}
-.cip.amber{background:var(--amber-acik);color:var(--amber)}
-.cip.mavi{background:var(--mavi-acik);color:var(--mavi)}
-.cip.gri{background:var(--gri-acik);color:var(--gri)}
-.cip.bitti-c{opacity:.45;text-decoration:line-through}
-.fazla{font-size:10.5px;color:var(--gri);font-weight:600}
-.gun-panel{margin-top:14px}
-.gun-panel-baslik{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-.gun-panel-baslik h3{font-family:var(--serif);font-size:17px;font-weight:600}
+.bugun-btn{font-size:13px;font-weight:600;padding:8px 13px;border-radius:9px;border:1px solid var(--cizgi);background:var(--kart)}
+.bugun-btn:hover{background:var(--gri-acik)}
+.mod-secici{display:flex;border:1px solid var(--cizgi);border-radius:9px;overflow:hidden;background:var(--kart)}
+.mod-secici button{padding:8px 14px;font-size:13px;font-weight:600;color:var(--gri)}
+.mod-secici button.aktif{background:var(--murekkep);color:#fff}
+.takvim-yerlesim{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
+@media (min-width:860px){.takvim-yerlesim.ay-modu{grid-template-columns:430px 1fr}}
+.tkart{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:12px;box-shadow:var(--golge)}
+.tgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.tgrid .baslik{text-align:center;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gri);padding:6px 0 8px}
+.tgrid .baslik.pazar{color:#C98077}
+.tgun{aspect-ratio:1/1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:transparent;transition:background .1s;min-width:0}
+.tgun:hover{background:var(--gri-acik)}
+.tgun .no{font-size:14px;font-weight:500;width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.tgun.pazar .no{color:var(--kirmizi)}
+.tgun.bugun .no{background:var(--murekkep);color:#fff;font-weight:600}
+.tgun.secili{background:var(--yesil-acik);box-shadow:inset 0 0 0 2px var(--yesil)}
+.tgun.dis{opacity:.3}
+.noktalar{display:flex;gap:3px;height:6px;align-items:center}
+.nokta{width:6px;height:6px;border-radius:50%;flex:none}
+.nokta.yesil{background:var(--yesil)}
+.nokta.kirmizi{background:var(--kirmizi)}
+.nokta.amber{background:#C89B3C}
+.nokta.mavi{background:var(--mavi)}
+.nokta.gri{background:#A6ADA5}
+.gun-ajanda-baslik{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.gun-ajanda-baslik h3{font-family:var(--serif);font-size:17.5px;font-weight:600}
+.liste-gun-baslik{display:flex;align-items:baseline;gap:9px;margin:20px 0 8px}
+.liste-gun-baslik:first-child{margin-top:0}
+.liste-gun-baslik .gno{font-family:var(--serif);font-size:22px;font-weight:600;min-width:30px;text-align:center}
+.liste-gun-baslik .gad{font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gri)}
+.liste-gun-baslik .bugun-r{font-size:11px;font-weight:600;background:var(--murekkep);color:#fff;border-radius:5px;padding:2px 7px}
 
 /* ---------- Boş durumlar ---------- */
-.bos{background:var(--kart);border:1px dashed var(--cizgi);border-radius:12px;padding:34px 20px;text-align:center;color:var(--gri)}
+.bos{background:var(--kart);border:1px dashed var(--cizgi);border-radius:12px;padding:30px 20px;text-align:center;color:var(--gri)}
 .bos p{margin-bottom:14px}
+.bos.duz{background:transparent;box-shadow:none}
 
 /* ---------- Diyaloglar ---------- */
 dialog{border:none;border-radius:14px;padding:0;width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 40px);box-shadow:0 24px 70px rgba(20,25,22,.35);background:var(--kart);color:var(--murekkep)}
@@ -179,12 +192,24 @@ dialog::backdrop{background:rgba(22,27,24,.5)}
 .hata-metni{color:var(--kirmizi);font-size:13px;margin-top:10px;display:none}
 .hata-metni.goster{display:block}
 
+/* ---------- Dosya kapatma seçenekleri ---------- */
+.sonuc-secenekler{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.sonuc-btn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1.5px solid var(--cizgi);border-radius:11px;padding:13px 15px;background:var(--kart);font-weight:600;font-size:15px;transition:all .12s}
+.sonuc-btn .isaret{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+.sonuc-btn small{display:block;font-weight:400;font-size:12.5px;color:var(--gri)}
+.sonuc-btn.kazan .isaret{background:var(--yesil-acik);color:var(--yesil)}
+.sonuc-btn.kazan:hover{border-color:var(--yesil);background:#F4F9F6}
+.sonuc-btn.kayip .isaret{background:var(--kirmizi-acik);color:var(--kirmizi)}
+.sonuc-btn.kayip:hover{border-color:var(--kirmizi);background:#FDF6F5}
+.sonuc-btn.cekil .isaret{background:var(--amber-acik);color:var(--amber)}
+.sonuc-btn.cekil:hover{border-color:var(--amber);background:#FCF9F1}
+
 /* ---------- Dosya detay ---------- */
 dialog.genis{width:min(720px,calc(100% - 24px))}
 .detay-baslik{padding:18px 20px 14px;border-bottom:1px solid var(--cizgi);background:linear-gradient(to bottom,#FBFBF8,#fff)}
 .detay-baslik .satir1{display:flex;align-items:flex-start;gap:10px}
 .detay-baslik h3{font-family:var(--serif);font-size:22px;font-weight:600;flex:1;min-width:0;overflow-wrap:anywhere}
-.detay-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.detay-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center;font-size:13px;color:var(--gri)}
 .bilgi-tablo{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px;margin-top:4px}
 .bilgi-tablo dt{color:var(--gri);font-weight:500;white-space:nowrap}
 .bilgi-tablo dd{overflow-wrap:anywhere}
@@ -209,7 +234,6 @@ dialog.genis{width:min(720px,calc(100% - 24px))}
 .kurulum-kart code{font-family:var(--mono);font-size:12.5px;background:var(--kagit);border:1px solid var(--cizgi);border-radius:5px;padding:1px 6px}
 .kurulum-kart pre{font-family:var(--mono);font-size:12px;background:var(--murekkep);color:#D8E4DC;border-radius:9px;padding:14px;overflow-x:auto;margin-top:8px;line-height:1.55}
 .uyari-kutu{background:var(--amber-acik);border:1px solid #E4D3A6;border-radius:9px;padding:10px 13px;font-size:13.5px;margin-top:16px;color:var(--amber)}
-
 .yukleniyor{min-height:100dvh;display:flex;align-items:center;justify-content:center;color:var(--gri);font-size:14px;letter-spacing:.04em}
 
 /* ---------- Mobil ---------- */
@@ -222,10 +246,11 @@ dialog.genis{width:min(720px,calc(100% - 24px))}
   .ist{padding:11px 12px}
   .ist .deger{font-size:26px}
   .ist .etiket{font-size:10px}
-  .gun{min-height:64px;padding:3px 3px 4px}
-  .cip{font-size:0;padding:0;height:5px;border-radius:3px}
-  .cip.bitti-c{text-decoration:none}
-  .ay-ad{min-width:0;font-size:18px}
+  .tkart{padding:8px}
+  .tgrid{gap:1px}
+  .tgun .no{font-size:13px;width:26px;height:26px}
+  .nokta{width:5px;height:5px}
+  .ay-ad{font-size:18px}
   dialog{width:calc(100% - 16px);max-height:calc(100dvh - 24px)}
   .iki-sutun{grid-template-columns:1fr}
   h1{font-size:22px}
@@ -240,11 +265,11 @@ dialog.genis{width:min(720px,calc(100% - 24px))}
 <div id="kurulum" class="tam-ekran gizli">
   <div class="kurulum-kart">
     <h1>Kurulum gerekli</h1>
-    <p style="color:var(--gri);font-size:14px">Uygulamanın çalışması için bir Firebase projesi bağlaman gerekiyor. Yaklaşık 5 dakika sürer, ücretsiz plandaki (Spark) limitler bu kullanım için fazlasıyla yeterli.</p>
+    <p style="color:var(--gri);font-size:14px">Uygulamanın çalışması için bir Firebase projesi bağlaman gerekiyor.</p>
     <ol>
       <li><a href="https://console.firebase.google.com" target="_blank" rel="noopener">console.firebase.google.com</a> adresinde yeni bir proje oluştur.</li>
-      <li><b>Authentication → Sign-in method</b> altında <b>E-posta/Şifre</b> yöntemini aç. <b>Users</b> sekmesinden avukatın e-postasıyla bir kullanıcı ekle (uygulamada kayıt ekranı yok; kullanıcıyı buradan sen tanımlıyorsun).</li>
-      <li><b>Firestore Database → Veritabanı oluştur</b> de (production modu), ardından <b>Rules</b> sekmesine aşağıdaki kuralları yapıştırıp yayınla:
+      <li><b>Authentication → Sign-in method</b> altında <b>E-posta/Şifre</b> yöntemini aç. <b>Users</b> sekmesinden kullanıcı ekle (uygulamada kayıt ekranı yok).</li>
+      <li><b>Firestore Database → Veritabanı oluştur</b> de, <b>Rules</b> sekmesine şu kuralları yapıştırıp yayınla:
 <pre>rules_version = '2';
 service cloud.firestore {
   match /databases/{db}/documents {
@@ -256,8 +281,9 @@ service cloud.firestore {
     }
   }
 }</pre></li>
-      <li>Proje ayarlarında <b>&lt;/&gt; Web uygulaması</b> ekle ve verilen <code>firebaseConfig</code> değerlerini kopyala.</li>
-      <li>Bu HTML dosyasını bir metin düzenleyiciyle aç, en alttaki <code>FIREBASE_CONFIG</code> bölümüne değerleri yapıştır, kaydet.</li>
+      <li>Proje ayarlarından <b>&lt;/&gt; Web uygulaması</b> ekle, verilen <code>firebaseConfig</code> bloğunu kopyala.</li>
+      <li>Bu HTML dosyasında <code>YAPILANDIRMA BURADA</code> yazan bölüme bloğu <b>olduğu gibi</b> yapıştır — değişken adı <code>firebaseConfig</code> ya da <code>FIREBASE_CONFIG</code> olabilir, ikisi de çalışır.</li>
+      <li>GitHub Pages kullanıyorsan: Firebase Console → Authentication → Settings → <b>Authorized domains</b> listesine <code>kullaniciadin.github.io</code> ekle.</li>
     </ol>
     <div class="uyari-kutu" id="kurulum-mesaj">Yapılandırma henüz girilmemiş görünüyor.</div>
   </div>
@@ -289,6 +315,7 @@ service cloud.firestore {
         <button data-gorunum="panel" class="aktif">Panel</button>
         <button data-gorunum="dosyalar">Dosyalar</button>
         <button data-gorunum="takvim">Takvim</button>
+        <button data-gorunum="arsiv">Arşiv</button>
       </nav>
       <div class="ust-sag">
         <span class="kullanici" id="kullanici-eposta"></span>
@@ -332,20 +359,36 @@ service cloud.firestore {
         <button class="gez" id="sonraki-ay" aria-label="Sonraki ay">›</button>
         <div class="ay-ad" id="ay-ad"></div>
         <button class="bugun-btn" id="takvim-bugun">Bugün</button>
+        <div class="mod-secici">
+          <button id="mod-ay" class="aktif">Ay</button>
+          <button id="mod-liste">Liste</button>
+        </div>
       </div>
-      <div class="takvim">
-        <div class="hafta-basliklar"><div>Pzt</div><div>Sal</div><div>Çar</div><div>Per</div><div>Cum</div><div>Cmt</div><div>Paz</div></div>
-        <div id="takvim-gunler"></div>
+      <div class="takvim-yerlesim ay-modu" id="takvim-yerlesim">
+        <div class="tkart" id="takvim-kart"><div class="tgrid" id="tgrid"></div></div>
+        <div id="takvim-sag"></div>
       </div>
-      <div class="gun-panel" id="gun-panel"></div>
+    </section>
+
+    <!-- ARŞİV -->
+    <section id="g-arsiv" class="gizli">
+      <div class="gorunum-baslik">
+        <h1>Arşiv</h1>
+      </div>
+      <div class="arac-cubugu">
+        <input type="search" id="arsiv-ara" placeholder="Arşivde ara…">
+        <div class="filtreler" id="arsiv-filtreler"></div>
+      </div>
+      <div class="dosya-liste" id="arsiv-liste"></div>
     </section>
   </main>
 
   <nav class="alt">
     <div class="ic">
-      <button data-gorunum="panel" class="aktif"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>Panel</button>
-      <button data-gorunum="dosyalar"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Dosyalar</button>
-      <button data-gorunum="takvim"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Takvim</button>
+      <button data-gorunum="panel" class="aktif"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>Panel</button>
+      <button data-gorunum="dosyalar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Dosyalar</button>
+      <button data-gorunum="takvim"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Takvim</button>
+      <button data-gorunum="arsiv"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9M10 13h4"/></svg>Arşiv</button>
     </div>
   </nav>
 </div>
@@ -363,12 +406,11 @@ service cloud.firestore {
         <label for="f-esas">Esas no</label>
         <input id="f-esas" placeholder="2026/123 E." style="font-family:var(--mono)">
       </div>
-      <div>
+      <div id="f-durum-alan">
         <label for="f-durum">Durum</label>
         <select id="f-durum">
           <option value="aktif">Aktif</option>
           <option value="beklemede">Beklemede</option>
-          <option value="kapali">Kapalı</option>
         </select>
       </div>
     </div>
@@ -445,10 +487,28 @@ service cloud.firestore {
     <div class="detay-meta" id="detay-meta"></div>
   </div>
   <div class="d-icerik" id="detay-icerik"></div>
-  <div class="d-alt">
-    <div class="sol"><button class="buton tehlike" id="detay-sil">Dosyayı sil</button></div>
-    <button class="buton ikincil" id="detay-duzenle">Düzenle</button>
-    <button class="buton" id="detay-etkinlik">+ Etkinlik</button>
+  <div class="d-alt" id="detay-alt"></div>
+</dialog>
+
+<!-- ============ DOSYA KAPAT ============ -->
+<dialog id="kapat-dialog">
+  <div class="d-baslik"><h3>Dosyayı kapat</h3><button class="kapat" data-kapat="kapat-dialog" aria-label="Kapat">×</button></div>
+  <div class="d-icerik">
+    <p style="font-size:14px;color:var(--gri)">Sonucu seç. Dosya arşive taşınır, bekleyen etkinlikleri tamamlandı olarak işaretlenir. Gerekirse arşivden yeniden açabilirsin.</p>
+    <div class="sonuc-secenekler">
+      <button class="sonuc-btn kazan" data-eylem="dosya-kapat" data-id="kazanildi">
+        <span class="isaret">✓</span>
+        <span>Kazanıldı<small>Dava lehimize sonuçlandı</small></span>
+      </button>
+      <button class="sonuc-btn kayip" data-eylem="dosya-kapat" data-id="kaybedildi">
+        <span class="isaret">✕</span>
+        <span>Kaybedildi<small>Dava aleyhimize sonuçlandı</small></span>
+      </button>
+      <button class="sonuc-btn cekil" data-eylem="dosya-kapat" data-id="istifa">
+        <span class="isaret">—</span>
+        <span>İstifa edildi<small>Vekillikten çekilme / dosya devri</small></span>
+      </button>
+    </div>
   </div>
 </dialog>
 
@@ -458,17 +518,19 @@ service cloud.firestore {
   <div class="d-icerik"><p id="onay-metin" style="font-size:14.5px"></p></div>
   <div class="d-alt">
     <button class="buton ikincil" data-kapat="onay-dialog">Vazgeç</button>
-    <button class="buton tehlike" id="onay-evet" style="background:var(--kirmizi);color:#fff;border:none">Evet, sil</button>
+    <button class="buton" id="onay-evet" style="background:var(--kirmizi)">Evet, sil</button>
   </div>
 </dialog>
 
 <script type="module">
 /* ================================================================
-   FIREBASE_CONFIG — Firebase Console > Proje ayarları > Web uygulaması
-   bölümünden aldığın değerleri buraya yapıştır.
+   ==================  YAPILANDIRMA BURADA  =======================
+   Firebase Console > Proje ayarları > Web uygulaması bölümündeki
+   config bloğunu aşağıya OLDUĞU GİBİ yapıştır. Değişkenin adı
+   firebaseConfig ya da FIREBASE_CONFIG olabilir — ikisi de çalışır.
    ================================================================ */
 const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyD7NrXDzisVpeYIVZBLMo34fmfQyoF5mu8",
+apiKey: "AIzaSyD7NrXDzisVpeYIVZBLMo34fmfQyoF5mu8",
   authDomain: "avukat-takip-d1003.firebaseapp.com",
   projectId: "avukat-takip-d1003",
   storageBucket: "avukat-takip-d1003.firebasestorage.app",
@@ -477,6 +539,11 @@ const FIREBASE_CONFIG = {
   measurementId: "G-7R52Y00F4M"
 };
 /* ================================================================ */
+
+/* İki isimden hangisi tanımlıysa onu kullan */
+const YAPILANDIRMA =
+  (typeof FIREBASE_CONFIG !== "undefined" && FIREBASE_CONFIG) ? FIREBASE_CONFIG :
+  (typeof firebaseConfig  !== "undefined" && firebaseConfig)  ? firebaseConfig  : null;
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -491,6 +558,11 @@ const TURLER = {
   diger:    { ad: "Diğer",     renk: "gri"     }
 };
 const DURUMLAR = { aktif: "Aktif", beklemede: "Beklemede", kapali: "Kapalı" };
+const SONUCLAR = {
+  kazanildi:  { ad: "Kazanıldı",     renk: "yesil",   isaret: "✓" },
+  kaybedildi: { ad: "Kaybedildi",    renk: "kirmizi", isaret: "✕" },
+  istifa:     { ad: "İstifa edildi", renk: "amber",   isaret: "—" }
+};
 
 const bugunISO = () => {
   const d = new Date();
@@ -515,15 +587,16 @@ let kullanici = null;
 let dosyalar = [], etkinlikler = [], notlar = [];
 let dinleyiciler = [];
 let gorunum = "panel";
-let takvimYil, takvimAy;
+let takvimYil, takvimAy, takvimMod = "ay";
 let seciliGun = bugunISO();
 let arama = "", durumFiltre = "hepsi";
+let arsivArama = "", arsivFiltre = "hepsi";
 let duzenlenenDosyaId = null, duzenlenenEtkinlikId = null, acikDosyaId = null;
 let onayCozucu = null;
 
 /* ---------------- Başlatma ---------------- */
 (async () => {
-  if (!FIREBASE_CONFIG.apiKey || FIREBASE_CONFIG.apiKey.includes("BURAYA")) {
+  if (!YAPILANDIRMA || !YAPILANDIRMA.apiKey || String(YAPILANDIRMA.apiKey).includes("BURAYA")) {
     $("yukleniyor").classList.add("gizli");
     $("kurulum").classList.remove("gizli");
     return;
@@ -534,11 +607,11 @@ let onayCozucu = null;
     const appMod = await import(S + "firebase-app.js");
     authMod = await import(S + "firebase-auth.js");
     fs = await import(S + "firebase-firestore.js");
-    app = appMod.initializeApp(FIREBASE_CONFIG);
+    app = appMod.initializeApp(YAPILANDIRMA);
   } catch (e) {
     $("yukleniyor").classList.add("gizli");
     $("kurulum").classList.remove("gizli");
-    $("kurulum-mesaj").textContent = "Firebase SDK yüklenemedi. Bu genellikle önizleme ortamının dış bağlantıları engellemesinden kaynaklanır — dosyayı kendi sunucunda veya bilgisayarında açtığında çalışacaktır.";
+    $("kurulum-mesaj").textContent = "Firebase SDK yüklenemedi. Önizleme ortamı dış bağlantıları engelliyor olabilir — dosya kendi adresinde açıldığında çalışır. Hata: " + (e.message || e);
     return;
   }
   auth = authMod.getAuth(app);
@@ -555,7 +628,8 @@ let onayCozucu = null;
         "auth/user-not-found": "Bu e-postayla kayıtlı kullanıcı yok.",
         "auth/wrong-password": "Şifre hatalı.",
         "auth/too-many-requests": "Çok fazla deneme yapıldı, biraz bekleyip tekrar dene.",
-        "auth/network-request-failed": "Bağlantı kurulamadı. İnternetini kontrol et."
+        "auth/network-request-failed": "Bağlantı kurulamadı. İnternetini kontrol et.",
+        "auth/unauthorized-domain": "Bu alan adı Firebase'de yetkili değil. Console → Authentication → Settings → Authorized domains listesine bu siteyi ekle."
       };
       h.textContent = mesajlar[e.code] || ("Giriş yapılamadı: " + e.code);
       h.classList.add("goster");
@@ -596,12 +670,15 @@ function dinlemeyiBirak() { dinleyiciler.forEach(u => u()); dinleyiciler = []; }
 const dosyaAdi = (d) => d ? (d.muvekkil + (d.karsiTaraf ? " – " + d.karsiTaraf : "")) : "Silinmiş dosya";
 const dosyaBul = (id) => dosyalar.find(d => d.id === id);
 const etkinlikSirala = (a, b) => (a.tarih + (a.saat || "")) < (b.tarih + (b.saat || "")) ? -1 : 1;
+const acikDosyalar = () => dosyalar.filter(d => d.durum !== "kapali");
+const arsivDosyalar = () => dosyalar.filter(d => d.durum === "kapali");
 
 /* ---------------- Çizimler ---------------- */
 function ciz() {
   if (gorunum === "panel") cizPanel();
   else if (gorunum === "dosyalar") cizDosyalar();
-  else cizTakvim();
+  else if (gorunum === "takvim") cizTakvim();
+  else cizArsiv();
   if (acikDosyaId) cizDetay();
 }
 
@@ -611,6 +688,7 @@ function gorunumDegistir(g) {
   $("g-panel").classList.toggle("gizli", g !== "panel");
   $("g-dosyalar").classList.toggle("gizli", g !== "dosyalar");
   $("g-takvim").classList.toggle("gizli", g !== "takvim");
+  $("g-arsiv").classList.toggle("gizli", g !== "arsiv");
   ciz();
   window.scrollTo({ top: 0 });
 }
@@ -619,7 +697,6 @@ function etkinlikSatiri(e, tarihGoster = true) {
   const t = TURLER[e.tur] || TURLER.diger;
   const d = dosyaBul(e.dosyaId);
   const fe = farkEtiketi(e.tarih);
-  const gecikmis = !e.tamamlandi && gunFarki(e.tarih) < 0;
   return `<div class="etk ${e.tamamlandi ? "bitti" : ""}">
     <button class="tik ${e.tamamlandi ? "dolu" : ""}" data-eylem="tamam" data-id="${e.id}" title="${e.tamamlandi ? "Tamamlandı işaretini kaldır" : "Tamamlandı işaretle"}" aria-label="Tamamlandı">✓</button>
     <div class="etk-ic">
@@ -664,25 +741,29 @@ function cizPanel() {
   $("panel-listeler").innerHTML = h;
 }
 
-/* ---- Dosyalar ---- */
+/* ---- Dosyalar (açık dosyalar) ---- */
 function cizDosyalar() {
-  const sayilar = { hepsi: dosyalar.length };
-  for (const k of Object.keys(DURUMLAR)) sayilar[k] = dosyalar.filter(d => d.durum === k).length;
-  $("durum-filtreler").innerHTML = ["hepsi", "aktif", "beklemede", "kapali"].map(k =>
+  const havuz = acikDosyalar();
+  const sayilar = {
+    hepsi: havuz.length,
+    aktif: havuz.filter(d => d.durum === "aktif").length,
+    beklemede: havuz.filter(d => d.durum === "beklemede").length
+  };
+  $("durum-filtreler").innerHTML = ["hepsi", "aktif", "beklemede"].map(k =>
     `<button class="filtre ${durumFiltre === k ? "aktif" : ""}" data-eylem="filtre" data-id="${k}">${k === "hepsi" ? "Tümü" : DURUMLAR[k]} · ${sayilar[k]}</button>`
   ).join("");
 
   const q = trKucuk(arama);
-  let liste = dosyalar.filter(d =>
+  let liste = havuz.filter(d =>
     (durumFiltre === "hepsi" || d.durum === durumFiltre) &&
     (!q || trKucuk([d.muvekkil, d.karsiTaraf, d.esasNo, d.mahkeme, d.davaTuru].join(" ")).includes(q))
   );
   liste.sort((a, b) => (b.olusturma || "") < (a.olusturma || "") ? -1 : 1);
 
   if (!liste.length) {
-    $("dosya-liste").innerHTML = dosyalar.length
+    $("dosya-liste").innerHTML = havuz.length
       ? `<div class="bos">Aramana uyan dosya bulunamadı.</div>`
-      : `<div class="bos"><p>Henüz dosya eklenmemiş. İlk dosyayı ekleyerek başla.</p><button class="buton" data-eylem="yeni-dosya">+ Yeni dosya</button></div>`;
+      : `<div class="bos"><p>Henüz açık dosya yok. İlk dosyayı ekleyerek başla.</p><button class="buton" data-eylem="yeni-dosya">+ Yeni dosya</button></div>`;
     return;
   }
 
@@ -701,7 +782,48 @@ function cizDosyalar() {
       <div class="dosya-alt">
         ${d.mahkeme ? `<span>${esc(d.mahkeme)}</span>` : ""}
         ${d.davaTuru ? `<span>${esc(d.davaTuru)}</span>` : ""}
+        ${d.durum === "beklemede" ? `<span class="rozet amber">Beklemede</span>` : ""}
         ${sonraki}
+      </div>
+    </button>`;
+  }).join("");
+}
+
+/* ---- Arşiv (kapalı dosyalar) ---- */
+function cizArsiv() {
+  const havuz = arsivDosyalar();
+  const sayilar = { hepsi: havuz.length };
+  for (const k of Object.keys(SONUCLAR)) sayilar[k] = havuz.filter(d => d.sonuc === k).length;
+  $("arsiv-filtreler").innerHTML = ["hepsi", "kazanildi", "kaybedildi", "istifa"].map(k =>
+    `<button class="filtre ${arsivFiltre === k ? "aktif" : ""}" data-eylem="arsiv-filtre" data-id="${k}">${k === "hepsi" ? "Tümü" : SONUCLAR[k].ad} · ${sayilar[k]}</button>`
+  ).join("");
+
+  const q = trKucuk(arsivArama);
+  let liste = havuz.filter(d =>
+    (arsivFiltre === "hepsi" || d.sonuc === arsivFiltre) &&
+    (!q || trKucuk([d.muvekkil, d.karsiTaraf, d.esasNo, d.mahkeme, d.davaTuru].join(" ")).includes(q))
+  );
+  liste.sort((a, b) => (b.kapanis || "") < (a.kapanis || "") ? -1 : 1);
+
+  if (!liste.length) {
+    $("arsiv-liste").innerHTML = havuz.length
+      ? `<div class="bos">Aramana uyan arşiv kaydı bulunamadı.</div>`
+      : `<div class="bos">Arşiv boş. Bir dosyayı kapattığında sonucuyla birlikte burada saklanır.</div>`;
+    return;
+  }
+
+  $("arsiv-liste").innerHTML = liste.map(d => {
+    const s = SONUCLAR[d.sonuc] || { ad: "Kapalı", renk: "gri", isaret: "" };
+    return `<button class="dosya ${d.sonuc ? d.sonuc + "-d" : "kapali-d"}" data-eylem="detay" data-id="${d.id}">
+      <div class="dosya-ust">
+        <div class="dosya-ad">${esc(dosyaAdi(d))}</div>
+        ${d.esasNo ? `<span class="esas">${esc(d.esasNo)}</span>` : ""}
+      </div>
+      <div class="dosya-alt">
+        <span class="rozet ${s.renk}">${s.isaret} ${s.ad}</span>
+        ${d.kapanis ? `<span>Kapanış: ${fmtKisa(d.kapanis)}</span>` : ""}
+        ${d.mahkeme ? `<span>${esc(d.mahkeme)}</span>` : ""}
+        ${d.davaTuru ? `<span>${esc(d.davaTuru)}</span>` : ""}
       </div>
     </button>`;
   }).join("");
@@ -711,14 +833,23 @@ function cizDosyalar() {
 function cizTakvim() {
   if (takvimYil === undefined) { const d = new Date(); takvimYil = d.getFullYear(); takvimAy = d.getMonth(); }
   $("ay-ad").textContent = AYLAR[takvimAy] + " " + takvimYil;
+  $("mod-ay").classList.toggle("aktif", takvimMod === "ay");
+  $("mod-liste").classList.toggle("aktif", takvimMod === "liste");
+  $("takvim-yerlesim").classList.toggle("ay-modu", takvimMod === "ay");
+  $("takvim-kart").classList.toggle("gizli", takvimMod !== "ay");
 
-  const ilkGun = new Date(takvimYil, takvimAy, 1);
-  const kayma = (ilkGun.getDay() + 6) % 7; // Pazartesi başlangıç
+  const gunEtkinlikleri = {};
+  for (const e of etkinlikler) (gunEtkinlikleri[e.tarih] ||= []).push(e);
+  for (const k in gunEtkinlikleri) gunEtkinlikleri[k].sort(etkinlikSirala);
+
+  if (takvimMod === "liste") { cizAyListesi(gunEtkinlikleri); return; }
+
+  const kayma = (new Date(takvimYil, takvimAy, 1).getDay() + 6) % 7; /* Pazartesi başlangıç */
   const gunSayisi = new Date(takvimYil, takvimAy + 1, 0).getDate();
   const oncekiGunSayisi = new Date(takvimYil, takvimAy, 0).getDate();
   const bugun = bugunISO();
-
   const gunISO = (y, a, g) => y + "-" + String(a + 1).padStart(2, "0") + "-" + String(g).padStart(2, "0");
+
   const hucre = [];
   for (let i = kayma - 1; i >= 0; i--) {
     const a = takvimAy === 0 ? 11 : takvimAy - 1, y = takvimAy === 0 ? takvimYil - 1 : takvimYil;
@@ -731,27 +862,45 @@ function cizTakvim() {
     hucre.push({ iso: gunISO(y, a, n), no: n, dis: true });
   }
 
-  const gunEtkinlikleri = {};
-  for (const e of etkinlikler) (gunEtkinlikleri[e.tarih] ||= []).push(e);
-  for (const k in gunEtkinlikleri) gunEtkinlikleri[k].sort(etkinlikSirala);
+  const basliklar = ["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"]
+    .map((g, i) => `<div class="baslik ${i === 6 ? "pazar" : ""}">${g}</div>`).join("");
 
-  $("takvim-gunler").innerHTML = hucre.map(h => {
-    const ler = gunEtkinlikleri[h.iso] || [];
-    const goster = ler.slice(0, 3);
-    return `<button class="gun ${h.dis ? "dis" : ""} ${h.iso === bugun ? "bugun" : ""} ${h.iso === seciliGun ? "secili" : ""}" data-eylem="gun-sec" data-id="${h.iso}">
-      <span class="gun-no">${h.no}</span>
-      ${goster.map(e => `<span class="cip ${TURLER[e.tur].renk} ${e.tamamlandi ? "bitti-c" : ""}">${e.saat ? e.saat + " " : ""}${TURLER[e.tur].ad}</span>`).join("")}
-      ${ler.length > 3 ? `<span class="fazla">+${ler.length - 3}</span>` : ""}
+  $("tgrid").innerHTML = basliklar + hucre.map((h, i) => {
+    const ler = (gunEtkinlikleri[h.iso] || []).filter(e => !e.tamamlandi);
+    const renkler = [...new Set(ler.map(e => TURLER[e.tur].renk))].slice(0, 4);
+    return `<button class="tgun ${h.dis ? "dis" : ""} ${h.iso === bugun ? "bugun" : ""} ${h.iso === seciliGun ? "secili" : ""} ${i % 7 === 6 ? "pazar" : ""}" data-eylem="gun-sec" data-id="${h.iso}" aria-label="${fmtUzun(h.iso)}">
+      <span class="no">${h.no}</span>
+      <span class="noktalar">${renkler.map(r => `<span class="nokta ${r}"></span>`).join("")}</span>
     </button>`;
   }).join("");
 
-  const secililer = (gunEtkinlikleri[seciliGun] || []);
-  $("gun-panel").innerHTML = `
-    <div class="gun-panel-baslik">
+  const secililer = gunEtkinlikleri[seciliGun] || [];
+  $("takvim-sag").innerHTML = `
+    <div class="gun-ajanda-baslik">
       <h3>${fmtUzun(seciliGun)}</h3>
       <button class="buton ikincil" data-eylem="gune-ekle" data-id="${seciliGun}">+ Bu güne ekle</button>
     </div>
-    ${secililer.length ? `<div class="etk-liste">${secililer.map(e => etkinlikSatiri(e, false)).join("")}</div>` : `<div class="bos">Bu günde kayıt yok.</div>`}`;
+    ${secililer.length ? `<div class="etk-liste">${secililer.map(e => etkinlikSatiri(e, false)).join("")}</div>`
+                       : `<div class="bos">Bu günde kayıt yok.</div>`}`;
+}
+
+function cizAyListesi(gunEtkinlikleri) {
+  const onEk = takvimYil + "-" + String(takvimAy + 1).padStart(2, "0") + "-";
+  const bugun = bugunISO();
+  const gunler = Object.keys(gunEtkinlikleri).filter(t => t.startsWith(onEk)).sort();
+  if (!gunler.length) {
+    $("takvim-sag").innerHTML = `<div class="bos"><p>${AYLAR[takvimAy]} ayında kayıtlı etkinlik yok.</p><button class="buton" data-eylem="yeni-etkinlik">+ Etkinlik ekle</button></div>`;
+    return;
+  }
+  $("takvim-sag").innerHTML = gunler.map(t => {
+    const d = isoTarih(t);
+    return `<div class="liste-gun-baslik">
+      <span class="gno">${d.getDate()}</span>
+      <span class="gad">${AYLAR[d.getMonth()].slice(0,3)} · ${GUNLER[d.getDay()]}</span>
+      ${t === bugun ? `<span class="bugun-r">Bugün</span>` : ""}
+    </div>
+    <div class="etk-liste">${gunEtkinlikleri[t].map(e => etkinlikSatiri(e, false)).join("")}</div>`;
+  }).join("");
 }
 
 /* ---- Dosya detay ---- */
@@ -759,9 +908,14 @@ function cizDetay() {
   const d = dosyaBul(acikDosyaId);
   if (!d) { $("detay-dialog").close(); acikDosyaId = null; return; }
   $("detay-ad").textContent = dosyaAdi(d);
-  const durumRenk = { aktif: "yesil", beklemede: "amber", kapali: "gri" }[d.durum] || "gri";
+
+  const kapali = d.durum === "kapali";
+  const s = kapali ? (SONUCLAR[d.sonuc] || { ad: "Kapalı", renk: "gri", isaret: "" }) : null;
+  const durumRenk = { aktif: "yesil", beklemede: "amber" }[d.durum] || "gri";
   $("detay-meta").innerHTML =
-    `<span class="rozet ${durumRenk}">${DURUMLAR[d.durum] || d.durum}</span>` +
+    (kapali ? `<span class="rozet ${s.renk}">${s.isaret} ${s.ad}</span>` +
+              (d.kapanis ? `<span>Kapanış: ${fmtKisa(d.kapanis)}</span>` : "")
+            : `<span class="rozet ${durumRenk}">${DURUMLAR[d.durum] || d.durum}</span>`) +
     (d.esasNo ? `<span class="esas">${esc(d.esasNo)}</span>` : "");
 
   const bugun = bugunISO();
@@ -779,7 +933,7 @@ function cizDetay() {
   $("detay-icerik").innerHTML = `
     ${bilgi ? `<dl class="bilgi-tablo">${bilgi}</dl>` : ""}
     <h2 class="bolum">Ajanda</h2>
-    ${acikEtk.length ? `<div class="etk-liste">${acikEtk.map(e => etkinlikSatiri(e)).join("")}</div>` : `<div class="bos">Bekleyen duruşma ya da süre yok.</div>`}
+    ${acikEtk.length ? `<div class="etk-liste">${acikEtk.map(e => etkinlikSatiri(e)).join("")}</div>` : `<div class="bos duz">Bekleyen duruşma ya da süre yok.</div>`}
     ${gecmisEtk.length ? `<h2 class="bolum">Geçmiş / tamamlanan</h2><div class="etk-liste">${gecmisEtk.map(e => etkinlikSatiri(e)).join("")}</div>` : ""}
     <h2 class="bolum">Notlar</h2>
     <div class="not-ekle">
@@ -791,8 +945,17 @@ function cizDetay() {
         <div class="tarih">${n.olusturma ? fmtKisa(n.olusturma.slice(0, 10)) + " " + n.olusturma.slice(11, 16) : ""}</div>
         <p>${esc(n.metin)}</p>
         <button class="sil" data-eylem="not-sil" data-id="${n.id}" aria-label="Notu sil">×</button>
-      </div>`).join("") || `<div class="bos">Bu dosyada henüz not yok.</div>`}
+      </div>`).join("") || `<div class="bos duz">Bu dosyada henüz not yok.</div>`}
     </div>`;
+
+  $("detay-alt").innerHTML = kapali
+    ? `<div class="sol"><button class="buton tehlike" data-eylem="dosya-sil-btn">Dosyayı sil</button></div>
+       <button class="buton ikincil" data-eylem="detay-duzenle-btn">Düzenle</button>
+       <button class="buton" data-eylem="dosya-yeniden-ac">Yeniden aç</button>`
+    : `<div class="sol"><button class="buton tehlike" data-eylem="dosya-sil-btn">Sil</button></div>
+       <button class="buton ikincil" data-eylem="detay-duzenle-btn">Düzenle</button>
+       <button class="buton ikincil" data-eylem="dosya-kapat-ac">Dosyayı kapat</button>
+       <button class="buton" data-eylem="detay-etkinlik-btn">+ Etkinlik</button>`;
 }
 
 /* ---------------- Formlar ---------------- */
@@ -800,10 +963,11 @@ function dosyaModalAc(id = null) {
   duzenlenenDosyaId = id;
   const d = id ? dosyaBul(id) : null;
   $("dosya-dialog-baslik").textContent = d ? "Dosyayı düzenle" : "Yeni dosya";
+  $("f-durum-alan").classList.toggle("gizli", !!(d && d.durum === "kapali"));
   $("f-muvekkil").value = d?.muvekkil || "";
   $("f-karsi").value = d?.karsiTaraf || "";
   $("f-esas").value = d?.esasNo || "";
-  $("f-durum").value = d?.durum || "aktif";
+  $("f-durum").value = (d && d.durum !== "kapali") ? d.durum : "aktif";
   $("f-mahkeme").value = d?.mahkeme || "";
   $("f-tur").value = d?.davaTuru || "";
   $("f-aciklama").value = d?.aciklama || "";
@@ -815,16 +979,18 @@ async function dosyaKaydet() {
   const muvekkil = $("f-muvekkil").value.trim();
   const hata = $("f-hata");
   if (!muvekkil) { hata.textContent = "Müvekkil adı zorunlu."; hata.classList.add("goster"); return; }
+  const eski = duzenlenenDosyaId ? dosyaBul(duzenlenenDosyaId) : null;
   const veri = {
     uid: kullanici.uid,
     muvekkil,
     karsiTaraf: $("f-karsi").value.trim(),
     esasNo: $("f-esas").value.trim(),
-    durum: $("f-durum").value,
     mahkeme: $("f-mahkeme").value.trim(),
     davaTuru: $("f-tur").value.trim(),
     aciklama: $("f-aciklama").value.trim()
   };
+  /* Arşivdeki dosyanın durumu düzenlemeyle değişmez; yalnızca "Yeniden aç" ile açılır */
+  if (!(eski && eski.durum === "kapali")) veri.durum = $("f-durum").value;
   try {
     if (duzenlenenDosyaId) await fs.updateDoc(fs.doc(db, "dosyalar", duzenlenenDosyaId), veri);
     else { veri.olusturma = new Date().toISOString(); await fs.addDoc(fs.collection(db, "dosyalar"), veri); }
@@ -837,9 +1003,11 @@ function etkinlikModalAc({ id = null, dosyaId = "", tarih = "" } = {}) {
   const e = id ? etkinlikler.find(x => x.id === id) : null;
   $("etkinlik-dialog-baslik").textContent = e ? "Etkinliği düzenle" : "Etkinlik ekle";
   $("etkinlik-sil").classList.toggle("gizli", !e);
-  const sirali = [...dosyalar].sort((a, b) => trKucuk(dosyaAdi(a)).localeCompare(trKucuk(dosyaAdi(b)), "tr"));
+  const sirali = [...dosyalar].sort((a, b) =>
+    ((a.durum === "kapali") - (b.durum === "kapali")) ||
+    dosyaAdi(a).localeCompare(dosyaAdi(b), "tr"));
   $("e-dosya").innerHTML = `<option value="">— Genel (dosyasız) —</option>` +
-    sirali.map(d => `<option value="${d.id}">${esc(dosyaAdi(d))}${d.esasNo ? " · " + esc(d.esasNo) : ""}</option>`).join("");
+    sirali.map(d => `<option value="${d.id}">${esc(dosyaAdi(d))}${d.esasNo ? " · " + esc(d.esasNo) : ""}${d.durum === "kapali" ? " (arşiv)" : ""}</option>`).join("");
   $("e-dosya").value = e ? (e.dosyaId || "") : dosyaId;
   $("e-tur").value = e?.tur || "durusma";
   $("e-tarih").value = e?.tarih || tarih || bugunISO();
@@ -868,6 +1036,28 @@ async function etkinlikKaydet() {
   } catch (e) { hata.textContent = "Kaydedilemedi: " + e.message; hata.classList.add("goster"); }
 }
 
+/* Dosyayı kapat: sonucu yaz, arşive taşı, bekleyen etkinlikleri tamamla */
+async function dosyaKapat(sonuc) {
+  const d = dosyaBul(acikDosyaId);
+  if (!d) return;
+  const grup = fs.writeBatch(db);
+  grup.update(fs.doc(db, "dosyalar", d.id), { durum: "kapali", sonuc, kapanis: bugunISO() });
+  etkinlikler.filter(e => e.dosyaId === d.id && !e.tamamlandi)
+             .forEach(e => grup.update(fs.doc(db, "etkinlikler", e.id), { tamamlandi: true }));
+  await grup.commit();
+  $("kapat-dialog").close();
+}
+
+async function dosyaYenidenAc() {
+  const d = dosyaBul(acikDosyaId);
+  if (!d) return;
+  await fs.updateDoc(fs.doc(db, "dosyalar", d.id), {
+    durum: "aktif",
+    sonuc: fs.deleteField(),
+    kapanis: fs.deleteField()
+  });
+}
+
 function onayIste(metin) {
   return new Promise(res => {
     onayCozucu = res;
@@ -892,6 +1082,7 @@ document.addEventListener("click", async (ev) => {
   else if (eylem === "gune-ekle") etkinlikModalAc({ tarih: id });
   else if (eylem === "gun-sec") { seciliGun = id; cizTakvim(); }
   else if (eylem === "filtre") { durumFiltre = id; cizDosyalar(); }
+  else if (eylem === "arsiv-filtre") { arsivFiltre = id; cizArsiv(); }
   else if (eylem === "etk-duzenle") etkinlikModalAc({ id });
   else if (eylem === "tamam") {
     const e = etkinlikler.find(x => x.id === id);
@@ -904,6 +1095,23 @@ document.addEventListener("click", async (ev) => {
   }
   else if (eylem === "not-sil") {
     if (await onayIste("Bu not silinsin mi?")) await fs.deleteDoc(fs.doc(db, "notlar", id));
+  }
+  else if (eylem === "dosya-kapat-ac") $("kapat-dialog").showModal();
+  else if (eylem === "dosya-kapat") await dosyaKapat(id);
+  else if (eylem === "dosya-yeniden-ac") await dosyaYenidenAc();
+  else if (eylem === "detay-duzenle-btn") dosyaModalAc(acikDosyaId);
+  else if (eylem === "detay-etkinlik-btn") etkinlikModalAc({ dosyaId: acikDosyaId });
+  else if (eylem === "dosya-sil-btn") {
+    const d = dosyaBul(acikDosyaId);
+    if (!d) return;
+    if (!(await onayIste(`"${dosyaAdi(d)}" dosyası, tüm etkinlikleri ve notlarıyla birlikte kalıcı olarak silinecek. Sonucu saklamak istiyorsan silmek yerine kapatıp arşivde tutabilirsin.`))) return;
+    const grup = fs.writeBatch(db);
+    grup.delete(fs.doc(db, "dosyalar", d.id));
+    etkinlikler.filter(e => e.dosyaId === d.id).forEach(e => grup.delete(fs.doc(db, "etkinlikler", e.id)));
+    notlar.filter(n => n.dosyaId === d.id).forEach(n => grup.delete(fs.doc(db, "notlar", n.id)));
+    await grup.commit();
+    $("detay-dialog").close();
+    acikDosyaId = null;
   }
 });
 
@@ -918,29 +1126,17 @@ $("etkinlik-sil").addEventListener("click", async () => {
   }
 });
 
-$("detay-duzenle").addEventListener("click", () => dosyaModalAc(acikDosyaId));
-$("detay-etkinlik").addEventListener("click", () => etkinlikModalAc({ dosyaId: acikDosyaId }));
-$("detay-sil").addEventListener("click", async () => {
-  const d = dosyaBul(acikDosyaId);
-  if (!d) return;
-  if (!(await onayIste(`"${dosyaAdi(d)}" dosyası, tüm etkinlikleri ve notlarıyla birlikte kalıcı olarak silinecek.`))) return;
-  const grup = fs.writeBatch(db);
-  grup.delete(fs.doc(db, "dosyalar", d.id));
-  etkinlikler.filter(e => e.dosyaId === d.id).forEach(e => grup.delete(fs.doc(db, "etkinlikler", e.id)));
-  notlar.filter(n => n.dosyaId === d.id).forEach(n => grup.delete(fs.doc(db, "notlar", n.id)));
-  await grup.commit();
-  $("detay-dialog").close();
-  acikDosyaId = null;
-});
-
 $("onay-evet").addEventListener("click", () => { $("onay-dialog").close(); if (onayCozucu) { onayCozucu(true); onayCozucu = null; } });
 $("onay-dialog").addEventListener("close", () => { if (onayCozucu) { onayCozucu(false); onayCozucu = null; } });
 $("detay-dialog").addEventListener("close", () => { acikDosyaId = null; });
 
 $("dosya-ara").addEventListener("input", (e) => { arama = e.target.value; cizDosyalar(); });
+$("arsiv-ara").addEventListener("input", (e) => { arsivArama = e.target.value; cizArsiv(); });
 $("onceki-ay").addEventListener("click", () => { takvimAy--; if (takvimAy < 0) { takvimAy = 11; takvimYil--; } cizTakvim(); });
 $("sonraki-ay").addEventListener("click", () => { takvimAy++; if (takvimAy > 11) { takvimAy = 0; takvimYil++; } cizTakvim(); });
 $("takvim-bugun").addEventListener("click", () => { const d = new Date(); takvimYil = d.getFullYear(); takvimAy = d.getMonth(); seciliGun = bugunISO(); cizTakvim(); });
+$("mod-ay").addEventListener("click", () => { takvimMod = "ay"; cizTakvim(); });
+$("mod-liste").addEventListener("click", () => { takvimMod = "liste"; cizTakvim(); });
 </script>
 </body>
 </html>
