@@ -131,6 +131,8 @@ h2.bolum.tehlike::after{background:#E5C6C1}
 .dosya-ust{display:flex;align-items:baseline;gap:10px}
 .dosya-ad{font-family:var(--serif);font-weight:600;font-size:17px;flex:1;min-width:0;overflow-wrap:anywhere}
 .esas{font-family:var(--mono);font-size:12.5px;color:var(--gri);border:1px solid var(--cizgi);border-radius:5px;padding:1px 7px;white-space:nowrap;background:var(--kagit)}
+.kod{font-family:var(--mono);font-size:12px;font-weight:500;background:var(--murekkep);color:#fff;border-radius:5px;padding:1px 7px;white-space:nowrap;flex:none}
+.kod.k2{font-size:11px;padding:0 5px;margin-right:6px;vertical-align:1px}
 .dosya-alt{display:flex;gap:14px;flex-wrap:wrap;margin-top:5px;font-size:13px;color:var(--gri);align-items:center}
 .dosya-alt .sonraki{color:var(--yesil);font-weight:600}
 .dosya-alt .sonraki.gecikti{color:var(--kirmizi)}
@@ -342,7 +344,7 @@ service cloud.firestore {
         <button class="buton" data-eylem="yeni-dosya">+ Yeni dosya</button>
       </div>
       <div class="arac-cubugu">
-        <input type="search" id="dosya-ara" placeholder="Müvekkil, esas no, mahkeme ara…">
+        <input type="search" id="dosya-ara" placeholder="Kod, müvekkil, esas no, mahkeme ara…">
         <div class="filtreler" id="durum-filtreler"></div>
       </div>
       <div class="dosya-liste" id="dosya-liste"></div>
@@ -403,9 +405,15 @@ service cloud.firestore {
     <input id="f-karsi">
     <div class="iki-sutun">
       <div>
+        <label for="f-kod">Dosya kodu (klasör)</label>
+        <input id="f-kod" placeholder="İ-1, H-3…" style="font-family:var(--mono)">
+      </div>
+      <div>
         <label for="f-esas">Esas no</label>
         <input id="f-esas" placeholder="2026/123 E." style="font-family:var(--mono)">
       </div>
+    </div>
+    <div class="iki-sutun">
       <div id="f-durum-alan">
         <label for="f-durum">Durum</label>
         <select id="f-durum">
@@ -413,6 +421,7 @@ service cloud.firestore {
           <option value="beklemede">Beklemede</option>
         </select>
       </div>
+      <div></div>
     </div>
     <label for="f-mahkeme">Mahkeme / Merci</label>
     <input id="f-mahkeme" list="mahkemeler" placeholder="Örn. Çorlu 2. Asliye Hukuk Mahkemesi">
@@ -705,7 +714,7 @@ function etkinlikSatiri(e, tarihGoster = true) {
         <span class="rozet ${t.renk}">${t.ad}</span>
         ${!e.tamamlandi ? `<span class="gun-etiketi ${fe.k === "normal" ? "normal" : ""}">${fe.m}</span>` : ""}
       </div>
-      <div class="etk-baslik">${e.dosyaId ? `<a href="#" data-eylem="detay" data-id="${e.dosyaId}">${esc(dosyaAdi(d))}</a>` : "Genel"}</div>
+      <div class="etk-baslik">${d && d.kod ? `<span class="kod k2">${esc(d.kod)}</span>` : ""}${e.dosyaId ? `<a href="#" data-eylem="detay" data-id="${e.dosyaId}">${esc(dosyaAdi(d))}</a>` : "Genel"}</div>
       ${e.aciklama ? `<div class="etk-aciklama">${esc(e.aciklama)}</div>` : ""}
     </div>
     <button class="kalem" data-eylem="etk-duzenle" data-id="${e.id}" aria-label="Düzenle"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button>
@@ -756,9 +765,12 @@ function cizDosyalar() {
   const q = trKucuk(arama);
   let liste = havuz.filter(d =>
     (durumFiltre === "hepsi" || d.durum === durumFiltre) &&
-    (!q || trKucuk([d.muvekkil, d.karsiTaraf, d.esasNo, d.mahkeme, d.davaTuru].join(" ")).includes(q))
+    (!q || trKucuk([d.kod, d.muvekkil, d.karsiTaraf, d.esasNo, d.mahkeme, d.davaTuru].join(" ")).includes(q))
   );
-  liste.sort((a, b) => (b.olusturma || "") < (a.olusturma || "") ? -1 : 1);
+  liste.sort((a, b) =>
+    a.kod && b.kod ? a.kod.localeCompare(b.kod, "tr", { numeric: true })
+    : a.kod ? -1 : b.kod ? 1
+    : (b.olusturma || "") < (a.olusturma || "") ? -1 : 1);
 
   if (!liste.length) {
     $("dosya-liste").innerHTML = havuz.length
@@ -776,6 +788,7 @@ function cizDosyalar() {
     else if (gelecek) sonraki = `<span class="sonraki">${TURLER[gelecek.tur].ad}: ${fmtKisa(gelecek.tarih)}${gelecek.saat ? " " + gelecek.saat : ""}</span>`;
     return `<button class="dosya ${d.durum}-d" data-eylem="detay" data-id="${d.id}">
       <div class="dosya-ust">
+        ${d.kod ? `<span class="kod">${esc(d.kod)}</span>` : ""}
         <div class="dosya-ad">${esc(dosyaAdi(d))}</div>
         ${d.esasNo ? `<span class="esas">${esc(d.esasNo)}</span>` : ""}
       </div>
@@ -801,7 +814,7 @@ function cizArsiv() {
   const q = trKucuk(arsivArama);
   let liste = havuz.filter(d =>
     (arsivFiltre === "hepsi" || d.sonuc === arsivFiltre) &&
-    (!q || trKucuk([d.muvekkil, d.karsiTaraf, d.esasNo, d.mahkeme, d.davaTuru].join(" ")).includes(q))
+    (!q || trKucuk([d.kod, d.muvekkil, d.karsiTaraf, d.esasNo, d.mahkeme, d.davaTuru].join(" ")).includes(q))
   );
   liste.sort((a, b) => (b.kapanis || "") < (a.kapanis || "") ? -1 : 1);
 
@@ -816,6 +829,7 @@ function cizArsiv() {
     const s = SONUCLAR[d.sonuc] || { ad: "Kapalı", renk: "gri", isaret: "" };
     return `<button class="dosya ${d.sonuc ? d.sonuc + "-d" : "kapali-d"}" data-eylem="detay" data-id="${d.id}">
       <div class="dosya-ust">
+        ${d.kod ? `<span class="kod">${esc(d.kod)}</span>` : ""}
         <div class="dosya-ad">${esc(dosyaAdi(d))}</div>
         ${d.esasNo ? `<span class="esas">${esc(d.esasNo)}</span>` : ""}
       </div>
@@ -913,6 +927,7 @@ function cizDetay() {
   const s = kapali ? (SONUCLAR[d.sonuc] || { ad: "Kapalı", renk: "gri", isaret: "" }) : null;
   const durumRenk = { aktif: "yesil", beklemede: "amber" }[d.durum] || "gri";
   $("detay-meta").innerHTML =
+    (d.kod ? `<span class="kod">${esc(d.kod)}</span>` : "") +
     (kapali ? `<span class="rozet ${s.renk}">${s.isaret} ${s.ad}</span>` +
               (d.kapanis ? `<span>Kapanış: ${fmtKisa(d.kapanis)}</span>` : "")
             : `<span class="rozet ${durumRenk}">${DURUMLAR[d.durum] || d.durum}</span>`) +
@@ -965,6 +980,7 @@ function dosyaModalAc(id = null) {
   $("dosya-dialog-baslik").textContent = d ? "Dosyayı düzenle" : "Yeni dosya";
   $("f-durum-alan").classList.toggle("gizli", !!(d && d.durum === "kapali"));
   $("f-muvekkil").value = d?.muvekkil || "";
+  $("f-kod").value = d?.kod || "";
   $("f-karsi").value = d?.karsiTaraf || "";
   $("f-esas").value = d?.esasNo || "";
   $("f-durum").value = (d && d.durum !== "kapali") ? d.durum : "aktif";
@@ -983,6 +999,7 @@ async function dosyaKaydet() {
   const veri = {
     uid: kullanici.uid,
     muvekkil,
+    kod: $("f-kod").value.trim(),
     karsiTaraf: $("f-karsi").value.trim(),
     esasNo: $("f-esas").value.trim(),
     mahkeme: $("f-mahkeme").value.trim(),
@@ -1007,7 +1024,7 @@ function etkinlikModalAc({ id = null, dosyaId = "", tarih = "" } = {}) {
     ((a.durum === "kapali") - (b.durum === "kapali")) ||
     dosyaAdi(a).localeCompare(dosyaAdi(b), "tr"));
   $("e-dosya").innerHTML = `<option value="">— Genel (dosyasız) —</option>` +
-    sirali.map(d => `<option value="${d.id}">${esc(dosyaAdi(d))}${d.esasNo ? " · " + esc(d.esasNo) : ""}${d.durum === "kapali" ? " (arşiv)" : ""}</option>`).join("");
+    sirali.map(d => `<option value="${d.id}">${d.kod ? "[" + esc(d.kod) + "] " : ""}${esc(dosyaAdi(d))}${d.esasNo ? " · " + esc(d.esasNo) : ""}${d.durum === "kapali" ? " (arşiv)" : ""}</option>`).join("");
   $("e-dosya").value = e ? (e.dosyaId || "") : dosyaId;
   $("e-tur").value = e?.tur || "durusma";
   $("e-tarih").value = e?.tarih || tarih || bugunISO();
